@@ -1,0 +1,774 @@
+Authenticating with public key "Imported-Openssh-Key: C:\\Users\\Admin\\Downloads\\111.pem"
+     ┌────────────────────────────────────────────────────────────────────┐
+     │                        • MobaXterm 12.4 •                          │
+     │            (SSH client, X-server and networking tools)             │
+     │                                                                    │
+     │ ➤ SSH session to ubuntu@ec2-34-226-147-3.compute-1.amazonaws.com   │
+     │   • SSH compression : ✔                                            │
+     │   • SSH-browser     : ✔                                            │
+     │   • X11-forwarding  : ✔  (remote display is forwarded through SSH) │
+     │   • DISPLAY         : ✔  (automatically set on remote server)      │
+     │                                                                    │
+     │ ➤ For more info, ctrl+click on help or visit our website           │
+     └────────────────────────────────────────────────────────────────────┘
+
+Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 4.15.0-1057-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+ System information disabled due to load higher than 1.0
+
+0 packages can be updated.
+0 updates are security updates.
+
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+/usr/bin/xauth:  file /home/ubuntu/.Xauthority does not exist
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+ubuntu@ip-172-31-81-172:~$ ls
+ubuntu@ip-172-31-81-172:~$ ls
+ubuntu@ip-172-31-81-172:~$ mkdir git1
+ubuntu@ip-172-31-81-172:~$ cd git1
+ubuntu@ip-172-31-81-172:~/git1$ git init
+Initialized empty Git repository in /home/ubuntu/git1/.git/
+ubuntu@ip-172-31-81-172:~/git1$ echo "egor -alexey" >initfile
+ubuntu@ip-172-31-81-172:~/git1$ ls -la
+total 16
+drwxrwxr-x 3 ubuntu ubuntu 4096 Feb  9 18:42 .
+drwxr-xr-x 6 ubuntu ubuntu 4096 Feb  9 18:41 ..
+drwxrwxr-x 7 ubuntu ubuntu 4096 Feb  9 18:41 .git
+-rw-rw-r-- 1 ubuntu ubuntu   13 Feb  9 18:42 initfile
+ubuntu@ip-172-31-81-172:~/git1$ git commit .
+error: pathspec '.' did not match any file(s) known to git.
+ubuntu@ip-172-31-81-172:~/git1$ git add .
+ubuntu@ip-172-31-81-172:~/git1$ git commit -m "first"
+[master (root-commit) b4398dc] first
+ Committer: Ubuntu <ubuntu@ip-172-31-81-172.ec2.internal>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 1 insertion(+)
+ create mode 100644 initfile
+ubuntu@ip-172-31-81-172:~/git1$ git push origin master
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+ubuntu@ip-172-31-81-172:~/git1$ git remote add origin https://github.com/NotEgorL/repo-uni.git
+ubuntu@ip-172-31-81-172:~/git1$ git remote -v
+origin  https://github.com/NotEgorL/repo-uni.git (fetch)
+origin  https://github.com/NotEgorL/repo-uni.git (push)
+ubuntu@ip-172-31-81-172:~/git1$ git push origin master
+Username for 'https://github.com': azazalozov@gmail.com
+Password for 'https://azazalozov@gmail.com@github.com':
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/NotEgorL/repo-uni.git/'
+ubuntu@ip-172-31-81-172:~/git1$ git push origin master
+Username for 'https://github.com': azazalozov@gmail.com
+Password for 'https://azazalozov@gmail.com@github.com':
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/NotEgorL/repo-uni.git/'
+ubuntu@ip-172-31-81-172:~/git1$ git push origin master
+Username for 'https://github.com': azazalozov@gmail.com
+Password for 'https://azazalozov@gmail.com@github.com':
+To https://github.com/NotEgorL/repo-uni.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/NotEgorL/repo-uni.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+ubuntu@ip-172-31-81-172:~/git1$ git remote add origin https://github.com/NotEgorL/emp.git
+fatal: remote origin already exists.
+ubuntu@ip-172-31-81-172:~/git1$ git push --remove
+error: unknown option `remove'
+usage: git push [<options>] [<repository> [<refspec>...]]
+
+    -v, --verbose         be more verbose
+    -q, --quiet           be more quiet
+    --repo <repository>   repository
+    --all                 push all refs
+    --mirror              mirror all refs
+    -d, --delete          delete refs
+    --tags                push tags (can't be used with --all or --mirror)
+    -n, --dry-run         dry run
+    --porcelain           machine-readable output
+    -f, --force           force updates
+    --force-with-lease[=<refname>:<expect>]
+                          require old value of ref to be at this value
+    --recurse-submodules[=<check|on-demand|no>]
+                          control recursive pushing of submodules
+    --thin                use thin pack
+    --receive-pack <receive-pack>
+                          receive pack program
+    --exec <receive-pack>
+                          receive pack program
+    -u, --set-upstream    set upstream for git pull/status
+    --progress            force progress reporting
+    --prune               prune locally removed refs
+    --no-verify           bypass pre-push hook
+    --follow-tags         push missing but relevant tags
+    --signed[=<yes|no|if-asked>]
+                          GPG sign the push
+    --atomic              request atomic transaction on remote side
+    -o, --push-option <server-specific>
+                          option to transmit
+    -4, --ipv4            use IPv4 addresses only
+    -6, --ipv6            use IPv6 addresses only
+
+ubuntu@ip-172-31-81-172:~/git1$ git push --remove https://github.com/NotEgorL/repo-uni.git'
+>
+> git push --remove https://github.com/NotEgorL/repo-uni.git'
+^C
+ubuntu@ip-172-31-81-172:~/git1$ git push --remove https://github.com/NotEgorL/repo-uni.git
+
+error: unknown option `remove'
+usage: git push [<options>] [<repository> [<refspec>...]]
+
+    -v, --verbose         be more verbose
+    -q, --quiet           be more quiet
+    --repo <repository>   repository
+    --all                 push all refs
+    --mirror              mirror all refs
+    -d, --delete          delete refs
+    --tags                push tags (can't be used with --all or --mirror)
+    -n, --dry-run         dry run
+    --porcelain           machine-readable output
+    -f, --force           force updates
+    --force-with-lease[=<refname>:<expect>]
+                          require old value of ref to be at this value
+    --recurse-submodules[=<check|on-demand|no>]
+                          control recursive pushing of submodules
+    --thin                use thin pack
+    --receive-pack <receive-pack>
+                          receive pack program
+    --exec <receive-pack>
+                          receive pack program
+    -u, --set-upstream    set upstream for git pull/status
+    --progress            force progress reporting
+    --prune               prune locally removed refs
+    --no-verify           bypass pre-push hook
+    --follow-tags         push missing but relevant tags
+    --signed[=<yes|no|if-asked>]
+                          GPG sign the push
+    --atomic              request atomic transaction on remote side
+    -o, --push-option <server-specific>
+                          option to transmit
+    -4, --ipv4            use IPv4 addresses only
+    -6, --ipv6            use IPv6 addresses only
+
+ubuntu@ip-172-31-81-172:~/git1$ git push --delete https://github.com/NotEgorL/repo-uni.git
+fatal: --delete doesn't make sense without any refs
+ubuntu@ip-172-31-81-172:~/git1$ git push --delete master develop third  https://github.com/NotEgorL/repo-uni.git
+fatal: --delete only accepts plain target ref names
+ubuntu@ip-172-31-81-172:~/git1$ git push --delete master develop third  https://github.com/NotEgorL/repo-uni.git
+fatal: --delete only accepts plain target ref names
+ubuntu@ip-172-31-81-172:~/git1$
+ubuntu@ip-172-31-81-172:~/git1$
+ubuntu@ip-172-31-81-172:~/git1$
+ubuntu@ip-172-31-81-172:~/git1$ git remote -v
+origin  https://github.com/NotEgorL/repo-uni.git (fetch)
+origin  https://github.com/NotEgorL/repo-uni.git (push)
+ubuntu@ip-172-31-81-172:~/git1$ git remote rm destination
+fatal: No such remote: destination
+ubuntu@ip-172-31-81-172:~/git1$ git remote rm origin
+ubuntu@ip-172-31-81-172:~/git1$ git remote -v
+ubuntu@ip-172-31-81-172:~/git1$ ls -la
+total 16
+drwxrwxr-x 3 ubuntu ubuntu 4096 Feb  9 18:42 .
+drwxr-xr-x 6 ubuntu ubuntu 4096 Feb  9 18:41 ..
+drwxrwxr-x 8 ubuntu ubuntu 4096 Feb  9 18:48 .git
+-rw-rw-r-- 1 ubuntu ubuntu   13 Feb  9 18:42 initfile
+ubuntu@ip-172-31-81-172:~/git1$ rm .git
+rm: cannot remove '.git': Is a directory
+ubuntu@ip-172-31-81-172:~/git1$ rm -RE .git
+rm: invalid option -- 'E'
+Try 'rm --help' for more information.
+ubuntu@ip-172-31-81-172:~/git1$ rm -R .git
+rm: remove write-protected regular file '.git/objects/0f/c117a9d6bd91f63cc6203b0975a03f57563106'? y
+rm: remove write-protected regular file '.git/objects/fd/44b31fb2da9774be02202107446b2f687e55c3'? y
+rm: remove write-protected regular file '.git/objects/b4/398dc1f820f76cd8c3c39774018226107ca258'? y
+ubuntu@ip-172-31-81-172:~/git1$ y
+y: command not found
+ubuntu@ip-172-31-81-172:~/git1$ ls -la
+total 12
+drwxrwxr-x 2 ubuntu ubuntu 4096 Feb  9 18:49 .
+drwxr-xr-x 6 ubuntu ubuntu 4096 Feb  9 18:41 ..
+-rw-rw-r-- 1 ubuntu ubuntu   13 Feb  9 18:42 initfile
+ubuntu@ip-172-31-81-172:~/git1$ git init
+Initialized empty Git repository in /home/ubuntu/git1/.git/
+ubuntu@ip-172-31-81-172:~/git1$ ls
+initfile
+ubuntu@ip-172-31-81-172:~/git1$ git commit -m "1"
+On branch master
+
+Initial commit
+
+Untracked files:
+        initfile
+
+nothing added to commit but untracked files present
+ubuntu@ip-172-31-81-172:~/git1$ git add .
+ubuntu@ip-172-31-81-172:~/git1$ git commit -m "1"
+[master (root-commit) e17fdfb] 1
+ Committer: Ubuntu <ubuntu@ip-172-31-81-172.ec2.internal>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 1 insertion(+)
+ create mode 100644 initfile
+ubuntu@ip-172-31-81-172:~/git1$ git remote add git remote https://github.com/NotEgorL/emp.git
+usage: git remote add [<options>] <name> <url>
+
+    -f, --fetch           fetch the remote branches
+    --tags                import all tags and associated objects when fetching
+                          or do not fetch any tag at all (--no-tags)
+    -t, --track <branch>  branch(es) to track
+    -m, --master <branch>
+                          master branch
+    --mirror[=<push|fetch>]
+                          set up remote as a mirror to push to or fetch from
+
+ubuntu@ip-172-31-81-172:~/git1$ git remote add origin https://github.com/NotEgorL/emp.git
+ubuntu@ip-172-31-81-172:~/git1$ git push origin master
+Username for 'https://github.com': azazalozov@gmail.com
+Password for 'https://azazalozov@gmail.com@github.com':
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 226 bytes | 226.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/NotEgorL/emp.git
+ * [new branch]      master -> master
+ubuntu@ip-172-31-81-172:~/git1$ git branch
+* master
+ubuntu@ip-172-31-81-172:~/git1$ git checkout develop
+error: pathspec 'develop' did not match any file(s) known to git.
+ubuntu@ip-172-31-81-172:~/git1$ git branch develop
+ubuntu@ip-172-31-81-172:~/git1$ ls -la
+total 16
+drwxrwxr-x 3 ubuntu ubuntu 4096 Feb  9 18:49 .
+drwxr-xr-x 6 ubuntu ubuntu 4096 Feb  9 18:41 ..
+drwxrwxr-x 8 ubuntu ubuntu 4096 Feb  9 18:54 .git
+-rw-rw-r-- 1 ubuntu ubuntu   13 Feb  9 18:42 initfile
+ubuntu@ip-172-31-81-172:~/git1$ git checkout develop
+Switched to branch 'develop'
+ubuntu@ip-172-31-81-172:~/git1$ ls -la
+total 16
+drwxrwxr-x 3 ubuntu ubuntu 4096 Feb  9 18:49 .
+drwxr-xr-x 6 ubuntu ubuntu 4096 Feb  9 18:41 ..
+drwxrwxr-x 8 ubuntu ubuntu 4096 Feb  9 18:54 .git
+-rw-rw-r-- 1 ubuntu ubuntu   13 Feb  9 18:42 initfile
+ubuntu@ip-172-31-81-172:~/git1$ echo "develop@" >developinit
+ubuntu@ip-172-31-81-172:~/git1$ git add .
+ubuntu@ip-172-31-81-172:~/git1$ git commit -m "message"
+[develop 5c67596] message
+ Committer: Ubuntu <ubuntu@ip-172-31-81-172.ec2.internal>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 1 insertion(+)
+ create mode 100644 developinit
+ubuntu@ip-172-31-81-172:~/git1$ git checkout master
+Switched to branch 'master'
+ubuntu@ip-172-31-81-172:~/git1$ git push origin develop
+Username for 'https://github.com': azazalozov@gmail.com
+Password for 'https://azazalozov@gmail.com      @github.com':
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/NotEgorL/emp.git/'
+ubuntu@ip-172-31-81-172:~/git1$ git push origin develop
+Username for 'https://github.com': azazalozov@gmail.com
+Password for 'https://azazalozov@gmail.com@github.com':
+Counting objects: 3, done.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 289 bytes | 289.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+remote:
+remote: Create a pull request for 'develop' on GitHub by visiting:
+remote:      https://github.com/NotEgorL/emp/pull/new/develop
+remote:
+To https://github.com/NotEgorL/emp.git
+ * [new branch]      develop -> develop
+ubuntu@ip-172-31-81-172:~/git1$ git branch
+  develop
+* master
+ubuntu@ip-172-31-81-172:~/git1$ ls
+initfile
+ubuntu@ip-172-31-81-172:~/git1$ cd ..
+ubuntu@ip-172-31-81-172:~$ ls
+git1
+ubuntu@ip-172-31-81-172:~$ mkdir gitcloned
+ubuntu@ip-172-31-81-172:~$ cd gitcloned/
+ubuntu@ip-172-31-81-172:~/gitcloned$ ls
+ubuntu@ip-172-31-81-172:~/gitcloned$ git clone  https://github.com/NotEgorL/emp.git
+Cloning into 'emp'...
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 6 (delta 1), reused 5 (delta 0), pack-reused 0
+Unpacking objects: 100% (6/6), done.
+ubuntu@ip-172-31-81-172:~/gitcloned$ git -v
+unknown option: -v
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+ubuntu@ip-172-31-81-172:~/gitcloned$ git branch
+fatal: not a git repository (or any of the parent directories): .git
+ubuntu@ip-172-31-81-172:~/gitcloned$ ls -la
+total 12
+drwxrwxr-x 3 ubuntu ubuntu 4096 Feb  9 18:57 .
+drwxr-xr-x 7 ubuntu ubuntu 4096 Feb  9 18:56 ..
+drwxrwxr-x 3 ubuntu ubuntu 4096 Feb  9 18:57 emp
+ubuntu@ip-172-31-81-172:~/gitcloned$ cd emp
+ubuntu@ip-172-31-81-172:~/gitcloned/emp$ ls -la
+total 16
+drwxrwxr-x 3 ubuntu ubuntu 4096 Feb  9 18:57 .
+drwxrwxr-x 3 ubuntu ubuntu 4096 Feb  9 18:57 ..
+drwxrwxr-x 8 ubuntu ubuntu 4096 Feb  9 18:57 .git
+-rw-rw-r-- 1 ubuntu ubuntu   13 Feb  9 18:57 initfile
+ubuntu@ip-172-31-81-172:~/gitcloned/emp$ git branch
+* master
+ubuntu@ip-172-31-81-172:~/gitcloned/emp$ echo "git doesnt clone branches by default"
+git doesnt clone branches by default
+ubuntu@ip-172-31-81-172:~/gitcloned/emp$ git branch -r
+  origin/HEAD -> origin/master
+  origin/develop
+  origin/master
+ubuntu@ip-172-31-81-172:~/gitcloned/emp$ git branch -t develop origin/develop
+\Branch 'develop' set up to track remote branch 'develop' from 'origin'.
+ubuntu@ip-172-31-81-172:~/gitcloned/emp$ git branches
+git: 'branches' is not a git command. See 'git --help'.
+ubuntu@ip-172-31-81-172:~/gitcloned/emp$ git branch
+  develop
+* master
+ubuntu@ip-172-31-81-172:~/gitcloned/emp$ усрщ ефыл 10
+усрщ: command not found
+ubuntu@ip-172-31-81-172:~/gitcloned/emp$ echo task 10
+task 10
+ubuntu@ip-172-31-81-172:~/gitcloned/emp$ echo 2nd-22222222>init2
+ubuntu@ip-172-31-81-172:~/gitcloned/emp$ git add .
+ubuntu@ip-172-31-81-172:~/gitcloned/emp$ git commit -m "task 10"
+[master 28a339a] task 10
+ Committer: Ubuntu <ubuntu@ip-172-31-81-172.ec2.internal>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 1 insertion(+)
+ create mode 100644 init2
+ubuntu@ip-172-31-81-172:~/gitcloned/emp$ git push origin master
+Username for 'https://github.com': azazalozov
+Password for 'https://azazalozov@github.com':
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/NotEgorL/emp.git/'
+ubuntu@ip-172-31-81-172:~/gitcloned/emp$ git push origin master
+Username for 'https://github.com': azazalozov@gmail.com
+Password for 'https://azazalozov@gmail.com@github.com':
+Counting objects: 3, done.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 279 bytes | 279.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/NotEgorL/emp.git
+   e17fdfb..28a339a  master -> master
+ubuntu@ip-172-31-81-172:~/gitcloned/emp$ git branch
+  develop
+* master
+ubuntu@ip-172-31-81-172:~/gitcloned/emp$ #git checkout develop
+ubuntu@ip-172-31-81-172:~/gitcloned/emp$ ls
+init2  initfile
+ubuntu@ip-172-31-81-172:~/gitcloned/emp$ git branch
+  develop
+* master
+ubuntu@ip-172-31-81-172:~/gitcloned/emp$ git branch -a
+  develop
+* master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/develop
+  remotes/origin/master
+ubuntu@ip-172-31-81-172:~/gitcloned/emp$ git checkout develop
+Switched to branch 'develop'
+Your branch is up to date with 'origin/develop'.
+ubuntu@ip-172-31-81-172:~/gitcloned/emp$ git branch -a
+* develop
+  master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/develop
+  remotes/origin/master
+ubuntu@ip-172-31-81-172:~/gitcloned/emp$ св юю
+св: command not found
+ubuntu@ip-172-31-81-172:~/gitcloned/emp$ cd ..
+ubuntu@ip-172-31-81-172:~/gitcloned$ ls
+emp
+ubuntu@ip-172-31-81-172:~/gitcloned$ cd ..
+ubuntu@ip-172-31-81-172:~$ ls
+git1  gitcloned
+ubuntu@ip-172-31-81-172:~$ history
+    1  ls
+    2  mkdir git1
+    3  cd git1
+    4  git init
+    5  echo "egor -alexey" >initfile
+    6  ls -la
+    7  git commit .
+    8  git add .
+    9  git commit -m "first"
+   10  git push origin master
+   11  git remote add origin https://github.com/NotEgorL/repo-uni.git
+   12  git remote -v
+   13  git push origin master
+   14  git remote add origin https://github.com/NotEgorL/emp.git
+   15  git push --remove
+   16  git push --remove https://github.com/NotEgorL/repo-uni.git'
+
+   17  git push --remove https://github.com/NotEgorL/repo-uni.git
+   18  git push --delete https://github.com/NotEgorL/repo-uni.git
+   19  git push --delete master develop third  https://github.com/NotEgorL/repo-uni.git
+   20  git remote -v
+   21  git remote rm destination
+   22  git remote rm origin
+   23  git remote -v
+   24  ls -la
+   25  rm .git
+   26  rm -RE .git
+   27  rm -R .git
+   28  y
+   29  ls -la
+   30  git init
+   31  ls
+   32  git commit -m "1"
+   33  git add .
+   34  git commit -m "1"
+   35  git remote add git remote https://github.com/NotEgorL/emp.git
+   36  git remote add origin https://github.com/NotEgorL/emp.git
+   37  git push origin master
+   38  git branch
+   39  git checkout develop
+   40  git branch develop
+   41  ls -la
+   42  git checkout develop
+   43  ls -la
+   44  echo "develop@" >developinit
+   45  git add .
+   46  git commit -m "message"
+   47  git checkout master
+   48  git push origin develop
+   49  git branch
+   50  ls
+   51  cd ..
+   52  ls
+   53  mkdir gitcloned
+   54  cd gitcloned/
+   55  ls
+   56  git clone  https://github.com/NotEgorL/emp.git
+   57  git -v
+   58  git branch
+   59  ls -la
+   60  cd emp
+   61  ls -la
+   62  git branch
+   63  echo "git doesnt clone branches by default"
+   64  git branch -r
+   65  git branch -t develop origin/develop
+   66  git branches
+   67  git branch
+   68  усрщ ефыл 10
+   69  echo task 10
+   70  echo 2nd-22222222>init2
+   71  git add .
+   72  git commit -m "task 10"
+   73  git push origin master
+   74  git branch
+   75  #git checkout develop
+   76  ls
+   77  git branch
+   78  git branch -a
+   79  git checkout develop
+   80  git branch -a
+   81  св юю
+   82  cd ..
+   83  ls
+   84  cd ..
+   85  ls
+   86  history
+ubuntu@ip-172-31-81-172:~$ git clone https://github.com/NotEgorL/final.git
+Cloning into 'final'...
+warning: You appear to have cloned an empty repository.
+ubuntu@ip-172-31-81-172:~$ git subtree add --prefix first https://github.com/NotEgorL/emp.git
+fatal: not a git repository (or any of the parent directories): .git
+ubuntu@ip-172-31-81-172:~$ sudo apt-get install tree
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+
+No apt package "tree", but there is a snap with that name.
+Try "snap install tree"
+
+E: Unable to locate package tree
+ubuntu@ip-172-31-81-172:~$ sudo apt-get update
+Hit:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic InRelease
+Get:2 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]
+Get:3 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]
+Get:4 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/universe amd64 Packages [8570 kB]
+Get:5 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+Get:6 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/universe Translation-en [4941 kB]
+Get:7 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/multiverse amd64 Packages [151 kB]
+Get:8 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/multiverse Translation-en [108 kB]
+Get:9 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/main amd64 Packages [851 kB]
+Get:10 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/main Translation-en [297 kB]
+Get:11 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/restricted amd64 Packages [30.0 kB]
+Get:12 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/restricted Translation-en [7888 B]
+Get:13 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 Packages [1048 kB]
+Get:14 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/universe Translation-en [324 kB]
+Get:15 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/multiverse amd64 Packages [9704 B]
+Get:16 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/multiverse Translation-en [4576 B]
+Get:17 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-backports/main amd64 Packages [2512 B]
+Get:18 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-backports/main Translation-en [1644 B]
+Get:19 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-backports/universe amd64 Packages [4028 B]
+Get:20 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-backports/universe Translation-en [1900 B]
+Get:21 http://security.ubuntu.com/ubuntu bionic-security/main amd64 Packages [632 kB]
+Get:22 http://security.ubuntu.com/ubuntu bionic-security/main Translation-en [207 kB]
+Get:23 http://security.ubuntu.com/ubuntu bionic-security/restricted amd64 Packages [20.6 kB]
+Get:24 http://security.ubuntu.com/ubuntu bionic-security/restricted Translation-en [5872 B]
+Get:25 http://security.ubuntu.com/ubuntu bionic-security/universe amd64 Packages [643 kB]
+Get:26 http://security.ubuntu.com/ubuntu bionic-security/universe Translation-en [216 kB]
+Get:27 http://security.ubuntu.com/ubuntu bionic-security/multiverse amd64 Packages [6328 B]
+Get:28 http://security.ubuntu.com/ubuntu bionic-security/multiverse Translation-en [2640 B]
+Fetched 18.3 MB in 4s (4604 kB/s) [A
+^[[A^[[A
+Reading package lists... Done
+ubuntu@ip-172-31-81-172:~$ git clone https://github.com/NotEgorL/final.git
+fatal: destination path 'final' already exists and is not an empty directory.
+ubuntu@ip-172-31-81-172:~$ sudo apt-get install tree
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following NEW packages will be installed:
+  tree
+0 upgraded, 1 newly installed, 0 to remove and 44 not upgraded.
+Need to get 40.7 kB of archives.
+After this operation, 105 kB of additional disk space will be used.
+Get:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/universe amd64 tree amd64 1.7.0-5 [40.7 kB]
+Fetched 40.7 kB in 0s (3866 kB/s)
+Selecting previously unselected package tree.
+(Reading database ... 56554 files and directories currently installed.)
+Preparing to unpack .../tree_1.7.0-5_amd64.deb ...
+Unpacking tree (1.7.0-5) ...
+Setting up tree (1.7.0-5) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+tree
+treeubuntu@ip-172-31-81-172:~$ tree
+.
+├── final
+├── git1
+│   └── initfile
+└── gitcloned
+    └── emp
+        ├── developinit
+        └── initfile
+
+4 directories, 3 files
+ubuntu@ip-172-31-81-172:~$ git remote add git1 ../git1
+fatal: not a git repository (or any of the parent directories): .git
+ubuntu@ip-172-31-81-172:~$ ls
+final  git1  gitcloned
+ubuntu@ip-172-31-81-172:~$ ll
+total 48
+drwxr-xr-x 8 ubuntu ubuntu 4096 Feb  9 19:11 ./
+drwxr-xr-x 3 root   root   4096 Feb  9 18:40 ../
+-rw------- 1 ubuntu ubuntu   62 Feb  9 18:41 .Xauthority
+-rw-r--r-- 1 ubuntu ubuntu  220 Apr  4  2018 .bash_logout
+-rw-r--r-- 1 ubuntu ubuntu 3771 Apr  4  2018 .bashrc
+drwx------ 2 ubuntu ubuntu 4096 Feb  9 18:41 .cache/
+drwx------ 3 ubuntu ubuntu 4096 Feb  9 18:41 .gnupg/
+-rw-r--r-- 1 ubuntu ubuntu  807 Apr  4  2018 .profile
+drwx------ 2 ubuntu ubuntu 4096 Feb  9 18:40 .ssh/
+-rw-r--r-- 1 ubuntu ubuntu    0 Feb  9 19:11 .sudo_as_admin_successful
+drwxrwxr-x 3 ubuntu ubuntu 4096 Feb  9 19:09 final/
+drwxrwxr-x 3 ubuntu ubuntu 4096 Feb  9 18:55 git1/
+drwxrwxr-x 3 ubuntu ubuntu 4096 Feb  9 18:57 gitcloned/
+ubuntu@ip-172-31-81-172:~$ ls -la git1
+total 16
+drwxrwxr-x 3 ubuntu ubuntu 4096 Feb  9 18:55 .
+drwxr-xr-x 8 ubuntu ubuntu 4096 Feb  9 19:11 ..
+drwxrwxr-x 8 ubuntu ubuntu 4096 Feb  9 18:55 .git
+-rw-rw-r-- 1 ubuntu ubuntu   13 Feb  9 18:42 initfile
+ubuntu@ip-172-31-81-172:~$ cd final/
+ubuntu@ip-172-31-81-172:~/final$ ls -la
+total 12
+drwxrwxr-x 3 ubuntu ubuntu 4096 Feb  9 19:09 .
+drwxr-xr-x 8 ubuntu ubuntu 4096 Feb  9 19:11 ..
+drwxrwxr-x 7 ubuntu ubuntu 4096 Feb  9 19:09 .git
+ubuntu@ip-172-31-81-172:~/final$ git remote add git1 ../git1
+ubuntu@ip-172-31-81-172:~/final$ git fetch git1
+remote: Counting objects: 6, done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 6 (delta 1), reused 0 (delta 0)
+Unpacking objects: 100% (6/6), done.
+From ../git1
+ * [new branch]      develop    -> git1/develop
+ * [new branch]      master     -> git1/master
+ubuntu@ip-172-31-81-172:~/final$ git merge *
+merge: * - not something we can merge
+ubuntu@ip-172-31-81-172:~/final$ git merge .
+merge: . - not something we can merge
+ubuntu@ip-172-31-81-172:~/final$ git merge develop
+merge: develop - not something we can merge
+
+Did you mean this?
+        git1/develop
+ubuntu@ip-172-31-81-172:~/final$ git merge git1/evelop
+merge: git1/evelop - not something we can merge
+ubuntu@ip-172-31-81-172:~/final$ git merge git1/develop
+ubuntu@ip-172-31-81-172:~/final$ git merge git1/master
+Already up to date.
+ubuntu@ip-172-31-81-172:~/final$ git remote add gitcloned ../gitcloned
+ubuntu@ip-172-31-81-172:~/final$ git fetch gitcloned
+fatal: '../gitcloned' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+ubuntu@ip-172-31-81-172:~/final$ git remote add gitcloned ../gitcloned/emp
+fatal: remote gitcloned already exists.
+ubuntu@ip-172-31-81-172:~/final$ git remote add gitcloned1 ../gitcloned/emp
+ubuntu@ip-172-31-81-172:~/final$ git fetch gitcloned1
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0)
+Unpacking objects: 100% (3/3), done.
+From ../gitcloned/emp
+ * [new branch]      develop    -> gitcloned1/develop
+ * [new branch]      master     -> gitcloned1/master
+ubuntu@ip-172-31-81-172:~/final$ git merge gitcloned/emp
+merge: gitcloned/emp - not something we can merge
+ubuntu@ip-172-31-81-172:~/final$ git merge gitcloned/emp/master
+merge: gitcloned/emp/master - not something we can merge
+ubuntu@ip-172-31-81-172:~/final$ cd ..
+ubuntu@ip-172-31-81-172:~$ ls
+final  git1  gitcloned
+ubuntu@ip-172-31-81-172:~$ cd gitcloned/
+ubuntu@ip-172-31-81-172:~/gitcloned$ ls
+emp
+ubuntu@ip-172-31-81-172:~/gitcloned$ cd emp/
+ubuntu@ip-172-31-81-172:~/gitcloned/emp$ ls
+developinit  initfile
+ubuntu@ip-172-31-81-172:~/gitcloned/emp$ ls -la
+total 20
+drwxrwxr-x 3 ubuntu ubuntu 4096 Feb  9 19:05 .
+drwxrwxr-x 3 ubuntu ubuntu 4096 Feb  9 18:57 ..
+drwxrwxr-x 8 ubuntu ubuntu 4096 Feb  9 19:05 .git
+-rw-rw-r-- 1 ubuntu ubuntu    9 Feb  9 19:05 developinit
+-rw-rw-r-- 1 ubuntu ubuntu   13 Feb  9 18:57 initfile
+ubuntu@ip-172-31-81-172:~/gitcloned/emp$ cd ..
+ubuntu@ip-172-31-81-172:~/gitcloned$ cd ..
+ubuntu@ip-172-31-81-172:~$ ls
+final  git1  gitcloned
+ubuntu@ip-172-31-81-172:~$ cd final/
+ubuntu@ip-172-31-81-172:~/final$ git merge gitcloned/emp/master/
+merge: gitcloned/emp/master/ - not something we can merge
+ubuntu@ip-172-31-81-172:~/final$ git merge gitcloned/emp/
+merge: gitcloned/emp/ - not something we can merge
+ubuntu@ip-172-31-81-172:~/final$ git merge emp/develop
+merge: emp/develop - not something we can merge
+ubuntu@ip-172-31-81-172:~/final$ git merge gitcloned1/emp/develop
+merge: gitcloned1/emp/develop - not something we can merge
+ubuntu@ip-172-31-81-172:~/final$ git merge gitcloned1/develop
+Already up to date.
+ubuntu@ip-172-31-81-172:~/final$ git merge gitcloned1/master
+Merge made by the 'recursive' strategy.
+ init2 | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 init2
+ubuntu@ip-172-31-81-172:~/final$ git merge gitcloned1/master
+Already up to date.
+ubuntu@ip-172-31-81-172:~/final$ ls -la
+total 24
+drwxrwxr-x 3 ubuntu ubuntu 4096 Feb  9 19:18 .
+drwxr-xr-x 9 ubuntu ubuntu 4096 Feb  9 19:18 ..
+drwxrwxr-x 8 ubuntu ubuntu 4096 Feb  9 19:18 .git
+-rw-rw-r-- 1 ubuntu ubuntu    9 Feb  9 19:15 developinit
+-rw-rw-r-- 1 ubuntu ubuntu   13 Feb  9 19:18 init2
+-rw-rw-r-- 1 ubuntu ubuntu   13 Feb  9 19:15 initfile
+ubuntu@ip-172-31-81-172:~/final$ git add .
+ubuntu@ip-172-31-81-172:~/final$ git commit -m "fin"
+On branch master
+Your branch is based on 'origin/master', but the upstream is gone.
+  (use "git branch --unset-upstream" to fixup)
+
+nothing to commit, working tree clean
+ubuntu@ip-172-31-81-172:~/final$ git push origin develop
+error: src refspec develop does not match any.
+error: failed to push some refs to 'https://github.com/NotEgorL/final.git'
+ubuntu@ip-172-31-81-172:~/final$ git branch
+* master
+ubuntu@ip-172-31-81-172:~/final$ git branch -a
+* master
+  remotes/git1/develop
+  remotes/git1/master
+  remotes/gitcloned1/develop
+  remotes/gitcloned1/master
+ubuntu@ip-172-31-81-172:~/final$ git push origin master
+Username for 'https://github.com': azazalozov"gmail.com^[[D^[[D^[[D^[[D^[[D^[[D^[[
+Password for 'https://azazalozov"gmagithub.com':
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/NotEgorL/final.git/'
+ubuntu@ip-172-31-81-172:~/final$ git push origin master
+Username for 'https://github.com': azazalozov@gmail.com
+Password for 'https://azazalozov@gmail.com@github.com':
+Counting objects: 11, done.
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (11/11), 944 bytes | 944.00 KiB/s, done.
+Total 11 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), done.
+To https://github.com/NotEgorL/final.git
+ * [new branch]      master -> master
+ubuntu@ip-172-31-81-172:~/final$
+
